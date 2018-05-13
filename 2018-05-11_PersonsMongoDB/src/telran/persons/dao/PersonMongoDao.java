@@ -25,15 +25,14 @@ public class PersonMongoDao implements IpersonsDao {
 
 	@Override
 	public Person getPerson(int id) {
-		return repository.findById(id).get().getPerson();
+		PersonCrud res = repository.findById(id).orElse(null);
+		return res == null ? null : res.getPerson();
 	}
 
-	//re-write
+	
 	@Override
 	 public boolean updateName(int id, String newName) {
-		
-		
-		
+
 	  PersonCrud person = repository.findById(id).orElse(null);
 	  if (person == null)
 	   return false;
@@ -41,7 +40,7 @@ public class PersonMongoDao implements IpersonsDao {
 	  repository.save(person);
 	  return true;
 	 }
-	//re-write
+	
 	 @Override
 	 public boolean removePerson(int id) {
 	  if (!repository.existsById(id))
