@@ -30,7 +30,7 @@ public class PersonServerAppl {
 	}
 
 	@GetMapping (value = PersonsApiConstants.GET_PERSON)
-	Person getPersons (@RequestBody int id) {
+	Person getPersons (int id) {
 		return persons.getPerson(id);
 	}
 	
