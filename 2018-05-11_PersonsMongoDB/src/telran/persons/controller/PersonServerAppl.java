@@ -29,7 +29,7 @@ public class PersonServerAppl {
 		return persons.removePerson(id);
 	}
 
-	@PostMapping (value = PersonsApiConstants.GET_PERSON)
+	@GetMapping (value = PersonsApiConstants.GET_PERSON)
 	Person getPersons (@RequestBody int id) {
 		return persons.getPerson(id);
 	}
